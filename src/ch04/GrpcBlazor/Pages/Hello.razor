@@ -1,0 +1,31 @@
+@page "/hello"
+@using Grpc.Net.Client
+@using Grpc.Net.Client.Web
+@using GrpcServer
+
+
+<PageTitle>Hello</PageTitle>
+<h1>gRPCの呼び出し</h1>
+
+<div role="status">戻り値: @result </div>
+
+<button class="btn btn-primary" @onclick="callHelloRequest">call HelloRequest</button>
+
+@code {
+	private string result = "";
+
+	private async void callHelloRequest()
+	{
+
+		Console.WriteLine("in callHelloRequest");
+		using var channel = GrpcChannel.ForAddress(
+			"https://localhost:7294",
+			new GrpcChannelOptions {
+					HttpHandler = new GrpcWebHandler(new HttpClientHandler())
+				});
+		var client = new Greeter.GreeterClient(channel);
+		var reply = await client.SayHelloAsync(new HelloRequest { Name = "masuda" });
+		result = reply.Message;
+		this.StateHasChanged();
+	}
+}

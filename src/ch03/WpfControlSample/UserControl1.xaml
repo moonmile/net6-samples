@@ -1,0 +1,30 @@
+<UserControl x:Class="WpfControlSample.UserControlSample"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WpfControlSample"
+             mc:Ignorable="d" 
+             d:DesignHeight="140" d:DesignWidth="250">
+    <Grid Margin="8">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="2*" />
+        </Grid.ColumnDefinitions>
+
+        <Label x:Name="label1" Content="Hello .NET 6 World." Grid.ColumnSpan="2" HorizontalAlignment="Center"
+               FontSize="16"/>
+        <TextBlock Text="ユーザー名：" Grid.Row="1" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+        <TextBlock Text="パスワード：" Grid.Row="2" HorizontalAlignment="Right" VerticalAlignment="Center"></TextBlock>
+        <TextBox x:Name="textUsername" Grid.Row="1" Grid.Column="1" Margin="2"/>
+        <TextBox x:Name="textPassword" Grid.Row="2" Grid.Column="1" Margin="2"/>
+        <Button Content="ログイン" Grid.Row="3" Grid.ColumnSpan="2" Margin="2"
+                Click="Button_Click" />
+    </Grid>
+</UserControl>

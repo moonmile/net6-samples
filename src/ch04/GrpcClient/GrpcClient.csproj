@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\calc.proto" />
+    <None Remove="Protos\greet.proto" />
+  </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="Grpc.AspNetCore" Version="2.40.0" />
+    </ItemGroup>
+    <ItemGroup>
+      <Protobuf Include="Protos\calc.proto" GrpcServices="Client" />
+      <Protobuf Include="Protos\greet.proto">
+        <GrpcServices>Client</GrpcServices>
+      </Protobuf>
+    </ItemGroup>
+
+</Project>

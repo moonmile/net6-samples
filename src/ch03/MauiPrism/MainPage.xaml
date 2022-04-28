@@ -1,0 +1,27 @@
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MauiPrism.MainPage"
+             BackgroundColor="{DynamicResource SecondaryColor}">
+    <ScrollView>
+        <Grid Margin="8">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="60" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="40" />
+                <RowDefinition Height="60" />
+                <RowDefinition Height="60" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Label Text="{Binding Message}"  Grid.ColumnSpan="2" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Label Text="ユーザー名：" Grid.Row="1" HorizontalTextAlignment="End" />
+            <Label Text="パスワード：" Grid.Row="2" HorizontalTextAlignment="End" />
+            <Entry Text="{Binding Username}" Grid.Row="1" Grid.Column="1" />
+            <Entry Text="{Binding Password}" Grid.Row="2" Grid.Column="1" />
+            <Button Text="ログイン" Command="{Binding LoginClicked}"  Grid.Row="3" Grid.ColumnSpan="2" Margin="4" />
+            <Button Text="リセット" Command="{Binding ResetClicked}"  Grid.Row="4" Grid.ColumnSpan="2" Margin="4" />
+        </Grid>
+    </ScrollView>
+</ContentPage>

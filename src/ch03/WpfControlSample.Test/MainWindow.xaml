@@ -1,0 +1,39 @@
+<Window
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfControlSample.Test"
+        xmlns:WpfControlSample="clr-namespace:WpfControlSample;assembly=WpfControlSample" x:Class="WpfControlSample.Test.MainWindow"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="287" Width="520">
+    <Grid Margin="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+
+<WpfControlSample:UserControlSample
+    Message="{Binding Message}" 
+    OnLoginSuccess="UserControlSample_OnLoginSuccess"/>
+        <GroupBox
+            Visibility="{Binding Visible}"
+            Grid.Column="1" Header="秘密のメッセージ">
+            <TextBlock>
+                おめでとうございます。<LineBreak/>
+                この文章は、無事にログインできた人だけに<LineBreak/>
+                見えるメッセージです。<LineBreak/>
+                早速、とじ込み付録を見てみましょう。<LineBreak/>
+                暗号は XYZ です。<LineBreak/>
+            </TextBlock>
+        </GroupBox>
+
+        <Button Content="リセット" Command="{Binding ResetClicked}" 
+                Grid.Row="1" Margin="4"
+                />
+    </Grid>
+</Window>
